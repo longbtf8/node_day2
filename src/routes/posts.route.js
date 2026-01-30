@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-
-router.get("/", (req, res) => {
+const controller = require("../controllers/post.controller");
+router.get("/", controller.getAll);
+router.get("/:id", (req, res) => {
   res.json({
-    title: "bai dang 1",
+    title: "chi tiet bai dang",
   });
 });
 
