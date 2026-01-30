@@ -25,13 +25,22 @@ const create = async (data) => {
 const update = async (id, updateData) => {
   const posts = await loadDB(resource);
   const index = posts.findIndex((p) => String(p.id) === String(id));
-  if (index === -1) return null;
+  if (index === -1) return { message: NotFound };
   posts[index] = {
     id: id,
     title: updateData.title,
-    content: updateData.title,
+    content: updateData.content,
   };
   await save(resource, posts);
   return posts[index];
 };
-module.exports = { getAll, getOne, create, update };
+const remove = async (id) => {
+  const posts = await loadDB(resource);
+  const index = posts.findIndex((p) => String(p.id) === String(id));
+  if (index === -1) return false;
+  posts.splice(index, 1);
+  console.log(posts);
+  await save(resource, posts);
+  return true;
+};
+module.exports = { getAll, getOne, create, update, remove };

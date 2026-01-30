@@ -17,7 +17,7 @@ async function loadDB(resourceName) {
 async function save(resourceName, db) {
   const filePath = path.join(__dirname, "db", `${resourceName}.json`);
   try {
-    await fs.writeFile(filePath, JSON.stringify(db), "utf-8");
+    await fs.writeFile(filePath, JSON.stringify(db, null, 2), "utf-8");
   } catch (error) {
     console.log(error);
   }

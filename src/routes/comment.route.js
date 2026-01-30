@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const controller = require("../controllers/comment.controller");
 
-router.get("/", (req, res) => {
-  res.json({
-    title: "noi dung 1",
-  });
-});
+router.get("/", controller.getAll);
+
 module.exports = router;

@@ -35,13 +35,26 @@ const create = async (req, res) => {
 const update = async (req, res) => {
   try {
     const { title, content } = req.body;
-    console.log(req.body);
-    const { id } = req.params();
-    console.log(id);
+    const { id } = req.params;
     const post = await postModel.update(id, { title, content });
     res.status(200).json(post);
   } catch (error) {
     res.status(404).json({ message: "Not Found" });
   }
 };
-module.exports = { getAll, getOne, create, update };
+const remove = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    const post = await postModel.remove(id);
+    console.log(post);
+    if (post) {
+      res.status(200).json({ message: "Delete done" });
+    } else {
+      res.status(400).json({ message: "Not Found" });
+    }
+  } catch (error) {
+    res.status(404).json({ message: "Not Found" });
+  }
+};
+module.exports = { getAll, getOne, create, update, remove };
