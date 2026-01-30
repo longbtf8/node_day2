@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers/post.controller");
 router.get("/", controller.getAll);
-router.get("/:id", (req, res) => {
-  res.json({
-    title: "chi tiet bai dang",
-  });
-});
-
+router.get("/:id", controller.getOne);
+router.post("/", controller.create);
 module.exports = router;

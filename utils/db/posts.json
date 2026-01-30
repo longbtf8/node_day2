@@ -1,8 +1,14 @@
 [
   {
     "id": 1,
-    "title": "post1",
-    "content": "abc",
+    "title": "post 1",
+    "content": "content1",
     "createdAt": "30/1"
+  },
+  {
+    "id": 2,
+    "title": "post 2",
+    "content": "content2",
+    "createdAt": "31/1"
   }
 ]
