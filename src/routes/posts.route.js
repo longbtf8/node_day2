@@ -4,4 +4,6 @@ const controller = require("../controllers/post.controller");
 router.get("/", controller.getAll);
 router.get("/:id", controller.getOne);
 router.post("/", controller.create);
+router.put("/:id", controller.update);
+
 module.exports = router;

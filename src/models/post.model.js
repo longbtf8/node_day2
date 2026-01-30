@@ -18,7 +18,20 @@ const create = async (data) => {
     createdAt: new Date().toISOString(),
   };
   posts.push(newPost);
-  save(resource, posts);
+  await save(resource, posts);
   return newPost;
 };
-module.exports = { getAll, getOne, create };
+
+const update = async (id, updateData) => {
+  const posts = await loadDB(resource);
+  const index = posts.findIndex((p) => String(p.id) === String(id));
+  if (index === -1) return null;
+  posts[index] = {
+    id: id,
+    title: updateData.title,
+    content: updateData.title,
+  };
+  await save(resource, posts);
+  return posts[index];
+};
+module.exports = { getAll, getOne, create, update };

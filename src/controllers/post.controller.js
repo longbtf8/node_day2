@@ -22,14 +22,26 @@ const create = async (req, res) => {
   try {
     const { title, content } = req.body;
     console.log(req.body);
-    console.log(title, content);
+
     if (!title || !content) {
       return res.status(400).json({ message: "Thiếu tiêu đề hoặc nội dung" });
     }
-    const newPost = postModel.create({ title, content });
+    const newPost = await postModel.create({ title, content });
     res.status(201).json(newPost);
   } catch (error) {
     res.status(400).json({ message: "Create Error" });
   }
 };
-module.exports = { getAll, getOne, create };
+const update = async (req, res) => {
+  try {
+    const { title, content } = req.body;
+    console.log(req.body);
+    const { id } = req.params();
+    console.log(id);
+    const post = await postModel.update(id, { title, content });
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(404).json({ message: "Not Found" });
+  }
+};
+module.exports = { getAll, getOne, create, update };

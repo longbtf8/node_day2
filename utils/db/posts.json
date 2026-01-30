@@ -1,14 +1,1 @@
-[
-  {
-    "id": 1,
-    "title": "post 1",
-    "content": "content1",
-    "createdAt": "30/1"
-  },
-  {
-    "id": 2,
-    "title": "post 2",
-    "content": "content2",
-    "createdAt": "31/1"
-  }
-]
+[{"id":1,"title":"post 1","content":"content1","createdAt":"30/1"},{"id":2,"title":"post 2","content":"content2","createdAt":"31/1"},{"id":3,"title":"Post3","content":"Post3","createdAt":"2026-01-30T07:32:44.037Z"},{"id":4,"title":"Post4","content":"Post4","createdAt":"2026-01-30T07:34:15.418Z"}]
