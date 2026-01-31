@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const apiRouter = require("./src/routes");
 const app = express();
-const port = 3006;
+const port = process.env.port || 3006;
 app.use(express.json());
 const allowedOrigin = ["http://localhost:5173", "https://longbtf8.github.io/"];
 
