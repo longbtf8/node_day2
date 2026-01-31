@@ -4,10 +4,7 @@ const apiRouter = require("./src/routes");
 const app = express();
 const port = 3006;
 app.use(express.json());
-const allowedOrigin = [
-  "http://localhost:5173",
-  "https://[your-username].github.io",
-];
+const allowedOrigin = ["http://localhost:5173", "https://longbtf8.github.io/"];
 
 const corsOption = {
   origin: function (origin, callback) {
