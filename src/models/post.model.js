@@ -27,6 +27,7 @@ const update = async (id, updateData) => {
   const index = posts.findIndex((p) => String(p.id) === String(id));
   if (index === -1) return { message: NotFound };
   posts[index] = {
+    ...posts[index],
     id: id,
     title: updateData.title,
     content: updateData.content,

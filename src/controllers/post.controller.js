@@ -49,7 +49,7 @@ const remove = async (req, res) => {
     const post = await postModel.remove(id);
     console.log(post);
     if (post) {
-      res.status(200).json({ message: "Delete done" });
+      res.status(204).json({ message: "Delete done" });
     } else {
       res.status(400).json({ message: "Not Found" });
     }
